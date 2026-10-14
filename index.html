@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тойға шақыру | Алихан & Аружан</title>
-    <!-- Google Fonts бағдарламасынан салтанатты шрифтер -->
+    <title>Тойға шақыру | Рустем & Людмила</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -41,7 +40,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ТАҚЫРЫП БӨЛІМІ */
         .sub-header {
             font-size: 11px;
             letter-spacing: 5px;
@@ -53,7 +51,7 @@
 
         .names {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 46px;
+            font-size: 44px;
             font-weight: 700;
             margin: 15px 0;
             background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
@@ -88,7 +86,7 @@
             font-style: italic;
         }
 
-        /* LUXURY ТАЙМЕР */
+        /* ТАЙМЕР */
         .timer-title {
             font-size: 12px;
             letter-spacing: 3px;
@@ -129,7 +127,7 @@
             letter-spacing: 1px;
         }
 
-        /* АҚПАРАТ КАРТОЧКАЛАРЫ */
+        /* КАРТОЧКАЛАР */
         .info-card {
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -154,7 +152,6 @@
             color: #d1d1d6;
         }
 
-        /* БАТЫРМАЛАР */
         .btn {
             display: inline-block;
             width: 100%;
@@ -188,7 +185,6 @@
             transform: scale(0.98);
         }
 
-        /* ФОРМА ЭЛЕМЕНТТЕРІ */
         input, select {
             width: 100%;
             padding: 14px;
@@ -215,7 +211,7 @@
             font-size: 14px;
         }
 
-        /* АДМИН ПАНЕЛЬ */
+        /* VIP АДМИН ПАНЕЛЬ */
         .admin-section {
             margin-top: 50px;
             padding-top: 20px;
@@ -279,11 +275,11 @@
 
     <div class="container">
         <div class="sub-header">Үйлену тойға шақыру</div>
-        <div class="names">Алихан & Аружан</div>
+        <div class="names">Рустем & Людмила</div>
 
-        <!-- Алтын рамкадағы фото -->
+        <!-- Алтын рамкадағы сурет -->
         <div class="hero-card">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800" alt="Алихан & Аружан" class="hero-img">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800" alt="Рустем & Людмила" class="hero-img">
         </div>
 
         <div class="invitation-text">
@@ -302,15 +298,15 @@
         <!-- КҮНІ ЖӘНЕ МЕКЕНЖАЙЫ -->
         <div class="info-card">
             <h3>🗓 КҮНІ МЕН УАҚЫТЫ</h3>
-            <p style="font-size: 18px; font-weight: 700; color: #fff;">25 Қараша 2026 жыл</p>
+            <p style="font-size: 18px; font-weight: 700; color: #fff;">26 Желтоқсан 2026 жыл</p>
             <p>Салтанатты жиын: <b style="color: var(--accent-gold);">18:00</b></p>
         </div>
 
         <div class="info-card">
             <h3>📍 МЕКЕНЖАЙЫ</h3>
-            <p style="font-size: 16px; font-weight: 600; color: #fff;">"Rixos Banquet Hall"</p>
-            <p style="color: var(--text-dim);">Тараз қаласы, Жамбыл проспектісі, 120</p>
-            <a href="https://2gis.kz" target="_blank" class="btn btn-gis">🗺 2GIS Картадан ашу</a>
+            <p style="font-size: 16px; font-weight: 600; color: #fff;">"Ballroom Hall" тойханасы</p>
+            <p style="color: var(--text-dim);">Тараз қаласы, Лермонтова көшесі 51</p>
+            <a href="https://2gis.kz/taraz/geo/70000001116772636/71.352089,42.880464" target="_blank" class="btn btn-gis">🗺 2GIS Картадан ашу</a>
         </div>
 
         <!-- ЖАУАП БЕРУ ФОРМАСЫ -->
@@ -330,7 +326,7 @@
             <div id="statusMessage">✨ Рақмет! Жауабыңыз қабылданды!</div>
         </div>
 
-        <p style="font-size: 11px; color: var(--text-dim); margin-top: 25px; letter-spacing: 1px;">ТОЙ ИЕЛЕРІ: НҰРЛАН & БАҚЫТ</p>
+        <p style="font-size: 11px; color: var(--text-dim); margin-top: 25px; letter-spacing: 1px;">ТОЙ ИЕЛЕРІ: НҰРБЕК & МАЙРА</p>
 
         <!-- VIP АДМИН ПАНЕЛЬ -->
         <div class="admin-section">
@@ -347,10 +343,11 @@
     </div>
 
     <script>
-        const ADMIN_PASSWORD = "1234";
+        // 🔑 АДМИН ПАРОЛІ:
+        const ADMIN_PASSWORD = "7777";
 
-        // ТАЙМЕР
-        const weddingDate = new Date("Nov 25, 2026 18:00:00").getTime();
+        // ТАЙМЕР (26 Желтоқсан 2026 жыл)
+        const weddingDate = new Date("Dec 26, 2026 18:00:00").getTime();
         setInterval(function() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
@@ -371,15 +368,15 @@
                 return;
             }
 
-            let guests = JSON.parse(localStorage.getItem("wedding_guests") || "[]");
+            let guests = JSON.parse(localStorage.getItem("rustem_ludmila_guests") || "[]");
             guests.push({ name: name, status: status });
-            localStorage.setItem("wedding_guests", JSON.stringify(guests));
+            localStorage.setItem("rustem_ludmila_guests", JSON.stringify(guests));
 
             document.getElementById("submitBtn").style.display = "none";
             document.getElementById("statusMessage").style.display = "block";
         }
 
-        // АДМИН ПАНЕЛЬ
+        // АДМИН ПАНЕЛЬ (Пароль: 7777)
         function toggleAdminPrompt() {
             const pass = prompt("Админ панель паролін енгізіңіз:");
             if (pass === ADMIN_PASSWORD) {
@@ -391,7 +388,7 @@
         }
 
         function loadGuestList() {
-            let guests = JSON.parse(localStorage.getItem("wedding_guests") || "[]");
+            let guests = JSON.parse(localStorage.getItem("rustem_ludmila_guests") || "[]");
             const listDiv = document.getElementById("guestList");
             const statsDiv = document.getElementById("totalStats");
 
@@ -423,7 +420,7 @@
 
         function clearList() {
             if (confirm("Тізімді тазалағыңыз келе ме?")) {
-                localStorage.removeItem("wedding_guests");
+                localStorage.removeItem("rustem_ludmila_guests");
                 loadGuestList();
             }
         }
