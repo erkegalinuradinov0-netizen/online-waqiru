@@ -45,29 +45,27 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            width: 45px;
-            height: 45px;
-            background: rgba(212, 175, 55, 0.2);
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.25);
             border: 1px solid var(--accent-gold);
             border-radius: 50%;
             color: var(--accent-gold);
-            font-size: 20px;
+            font-size: 22px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
             z-index: 1000;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
         }
 
         .music-btn.playing {
             animation: spin 3s linear infinite;
         }
 
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
 
         .sub-header {
             font-size: 11px;
@@ -80,7 +78,7 @@
 
         .names {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 44px;
+            font-size: 46px;
             font-weight: 700;
             margin: 15px 0;
             background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
@@ -89,7 +87,6 @@
             line-height: 1.1;
         }
 
-        /* АНИМАЦИЯЛЫҚ ЖҮРЕК */
         .beating-heart {
             font-size: 32px;
             margin: 10px 0;
@@ -122,10 +119,10 @@
 
         .invitation-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
+            font-size: 21px;
             line-height: 1.6;
             color: #e0e0e0;
-            margin: 20px 10px;
+            margin: 25px 10px;
             font-style: italic;
         }
 
@@ -195,6 +192,44 @@
             color: #d1d1d6;
         }
 
+        /* ТАЙМЛАЙН БӨЛІМІ */
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        .timeline-time {
+            font-weight: 700;
+            color: var(--accent-gold);
+            width: 80px;
+            text-align: left;
+        }
+
+        .timeline-text {
+            text-align: right;
+            color: #e0e0e0;
+        }
+
+        /* ДРЕСС КОД ТҮСТЕРІ */
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .color-circle {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        /* БАТЫРМАЛАР */
         .btn {
             display: inline-block;
             width: 100%;
@@ -224,9 +259,7 @@
             box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
         }
 
-        .btn:active {
-            transform: scale(0.98);
-        }
+        .btn:active { transform: scale(0.98); }
 
         input, select {
             width: 100%;
@@ -241,10 +274,7 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        select option {
-            background: #1c1c1e;
-            color: #fff;
-        }
+        select option { background: #1c1c1e; color: #fff; }
 
         #statusMessage {
             font-weight: 600;
@@ -319,23 +349,21 @@
     <!-- МУЗЫКА БАТЫРМАСЫ -->
     <div class="music-btn" id="musicBtn" onclick="toggleMusic(event)">🎵</div>
     
-    <!-- Аудио файл (фоновый саз) -->
+    <!-- Сапалы романтикалық фоновый музыка -->
     <audio id="weddingAudio" loop preload="auto">
-        <source src="https://assets.mixkit.co/music/preview/mixkit-wedding-march-classic-organ-1191.mp3" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-114228.mp3" type="audio/mpeg">
     </audio>
 
     <div class="container">
         <div class="sub-header">Үйлену тойға шақыру</div>
         <div class="names">Рустем & Людмила</div>
 
-        <!-- АНИМАЦИЯЛЫ ЖҮРЕК -->
         <div class="beating-heart">💖</div>
 
         <div class="hero-card">
             <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800" alt="Рустем & Людмила" class="hero-img">
         </div>
 
-        <!-- СІЗ АЙТҚАН ӨЛЕҢ СӨЗДЕРІ -->
         <div class="invitation-text">
             «Махаббаттың құдірет күшін әлдилеп,<br>Екі жастың табыстырған жүрегін...»<br><br>
             Салтанатты тойымыздың қадірлі қонағы болуға шақырамыз!
@@ -357,11 +385,51 @@
             <p>Салтанатты жиын: <b style="color: var(--accent-gold);">18:00</b></p>
         </div>
 
+        <!-- 🕒 ТОЙ БАҒДАРЛАМАСЫ (ТАЙМЛАЙН) -->
+        <div class="info-card">
+            <h3>⏳ ТОЙ БАҒДАРЛАМАСЫ</h3>
+            <div class="timeline-item">
+                <div class="timeline-time">18:00</div>
+                <div class="timeline-text">Қонақтардың жиналуы</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">18:30</div>
+                <div class="timeline-text">Салтанатты Беташар</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">19:00</div>
+                <div class="timeline-text">Той салтанатының басталуы</div>
+            </div>
+            <div class="timeline-item" style="border:none;">
+                <div class="timeline-time">23:00</div>
+                <div class="timeline-text">Шоу бағдарлама & Торт кесу</div>
+            </div>
+        </div>
+
         <div class="info-card">
             <h3>📍 МЕКЕНЖАЙЫ</h3>
             <p style="font-size: 16px; font-weight: 600; color: #fff;">"Ballroom Hall" тойханасы</p>
             <p style="color: var(--text-dim);">Тараз қаласы, Лермонтова көшесі 51</p>
             <a href="https://2gis.kz/taraz/geo/70000001116772636/71.352089,42.880464" target="_blank" class="btn btn-gis">🗺 2GIS Картадан ашу</a>
+        </div>
+
+        <!-- 👗 ДРЕСС-КОД БӨЛІМІ -->
+        <div class="info-card">
+            <h3>✨ DRESS CODE</h3>
+            <p style="font-size: 13px;">Той сәнді өтуі үшін төмендегі түстерді қолдануыңызды өтінеміз:</p>
+            <div class="color-palette">
+                <div class="color-circle" style="background: #000000;" title="Қара"></div>
+                <div class="color-circle" style="background: #d4af37;" title="Алтын"></div>
+                <div class="color-circle" style="background: #ffffff;" title="Ақ"></div>
+                <div class="color-circle" style="background: #1c2833;" title="Темно-синий"></div>
+            </div>
+        </div>
+
+        <!-- 📸 INSTAGRAM HASHTAG -->
+        <div class="info-card">
+            <h3>📸 INSTAGRAM HASHTAG</h3>
+            <p style="font-size: 13px;">Тойда түскен фото-видеоларыңызды осы хэштегпен бөлісіңіздер:</p>
+            <p style="font-size: 16px; font-weight: 700; color: var(--accent-gold); margin-top: 10px;">#RustemLydmilaWedding</p>
         </div>
 
         <!-- ЖАУАП БЕРУ ФОРМАСЫ -->
@@ -381,7 +449,7 @@
             <div id="statusMessage">✨ Рақмет! Жауабыңыз қабылданды!</div>
         </div>
 
-        <p style="font-size: 11px; color: var(--text-dim); margin-top: 25px; letter-spacing: 1px;">ТОЙ ИЕЛЕРІ: НҰРБЕК & МАЙРА</p>
+        <p style="font-size: 11px; color: var(--text-dim); margin-top: 30px; letter-spacing: 1px;">ТОЙ ИЕЛЕРІ: НҰРБЕК & МАЙРА</p>
 
         <!-- VIP АДМИН ПАНЕЛЬ -->
         <div class="admin-section">
@@ -415,7 +483,7 @@
         }
 
         function toggleMusic(e) {
-            e.stopPropagation(); // Негізгі body-ға кликті жібермеу
+            e.stopPropagation();
             if (audio.paused) {
                 audio.play();
                 musicBtn.classList.add("playing");
@@ -455,7 +523,7 @@
             document.getElementById("statusMessage").style.display = "block";
         }
 
-        // АДМИН ПАНЕЛЬ
+        // АДМИН ПАНЕЛЬ (Пароль: 7777)
         function toggleAdminPrompt() {
             const pass = prompt("Админ панель паролін енгізіңіз:");
             if (pass === ADMIN_PASSWORD) {
@@ -506,3 +574,4 @@
     </script>
 </body>
 </html>
+
