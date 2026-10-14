@@ -4,144 +4,290 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тойға шақыру | Алихан & Аружан</title>
+    <!-- Google Fonts бағдарламасынан салтанатты шрифтер -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #fdfbf7;
-            --text-color: #333333;
-            --accent-color: #c5a059; /* Алтын түс */
-            --card-bg: #ffffff;
+            --bg-color: #0d0d0d;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border-gold: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --accent-gold: #d4af37;
+            --text-light: #f5f5f7;
+            --text-dim: #a1a1a6;
         }
+
+        * { box-sizing: border-box; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-light);
             text-align: center;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.15), transparent 60%);
         }
+
         .container {
-            max-width: 500px;
+            max-width: 480px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 25px 20px;
+            animation: fadeIn 1.5s ease-in-out;
         }
-        .header-title {
-            font-size: 14px;
-            letter-spacing: 3px;
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ТАҚЫРЫП БӨЛІМІ */
+        .sub-header {
+            font-size: 11px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            color: var(--accent-color);
-            margin-top: 30px;
+            color: var(--accent-gold);
+            margin-top: 20px;
+            font-weight: 600;
         }
+
         .names {
-            font-size: 36px;
-            font-weight: bold;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 46px;
+            font-weight: 700;
             margin: 15px 0;
-            color: #2c2c2c;
+            background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
         }
-        .invitation-text {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #555;
-            margin: 20px 0;
+
+        .hero-card {
+            position: relative;
+            padding: 5px;
+            border-radius: 24px;
+            background: var(--border-gold);
+            margin: 25px 0;
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
         }
+
         .hero-img {
             width: 100%;
-            height: 350px;
+            height: 380px;
             object-fit: cover;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            display: block;
         }
-        
-        /* ТАЙМЕР */
+
+        .invitation-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin: 25px 10px;
+            font-style: italic;
+        }
+
+        /* LUXURY ТАЙМЕР */
         .timer-title {
-            font-size: 18px;
-            color: var(--accent-color);
-            margin-top: 30px;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-top: 35px;
         }
+
         .timer-box {
             display: flex;
             justify-content: center;
             gap: 12px;
-            margin: 15px 0;
-        }
-        .timer-item {
-            background: var(--card-bg);
-            padding: 10px 15px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            min-width: 50px;
-        }
-        .timer-item span {
-            display: block;
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-        .timer-item small {
-            font-size: 10px;
-            color: #777;
+            margin: 15px 0 35px 0;
         }
 
-        /* АҚПАРАТ КАРТОЧКАСЫ */
+        .timer-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 12px 10px;
+            border-radius: 16px;
+            min-width: 65px;
+            box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.05);
+        }
+
+        .timer-item span {
+            display: block;
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .timer-item small {
+            font-size: 9px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* АҚПАРАТ КАРТОЧКАЛАРЫ */
         .info-card {
             background: var(--card-bg);
-            padding: 20px;
-            border-radius: 16px;
-            margin: 25px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #f0e6d2;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 25px 20px;
+            border-radius: 24px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
+
         .info-card h3 {
-            margin: 5px 0;
-            color: var(--accent-color);
+            font-size: 13px;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+
+        .info-card p {
+            margin: 8px 0;
+            font-size: 15px;
+            color: #d1d1d6;
         }
 
         /* БАТЫРМАЛАР */
         .btn {
-            display: block;
+            display: inline-block;
             width: 100%;
-            padding: 14px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: bold;
+            padding: 16px;
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
             text-decoration: none;
             border: none;
             cursor: pointer;
             box-sizing: border-box;
-            margin-top: 10px;
-        }
-        .btn-gis {
-            background-color: #2f3542;
-            color: #ffffff;
-        }
-        .btn-whatsapp {
-            background-color: #25D366;
-            color: #ffffff;
+            margin-top: 15px;
+            transition: all 0.3s ease;
         }
 
-        /* ФОРМА */
+        .btn-gis {
+            background: linear-gradient(135deg, #1e1e1e, #2c2c2e);
+            color: var(--accent-gold);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #bf953f, #aa771c);
+            color: #000;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* ФОРМА ЭЛЕМЕНТТЕРІ */
         input, select {
             width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
+            padding: 14px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        select option {
+            background: #1c1c1e;
+            color: #fff;
+        }
+
+        #statusMessage {
+            font-weight: 600;
+            color: #34c759;
+            margin-top: 15px;
+            display: none;
+            font-size: 14px;
+        }
+
+        /* АДМИН ПАНЕЛЬ */
+        .admin-section {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(255,255,255,0.1);
+        }
+
+        .admin-btn {
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            font-size: 11px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .admin-modal {
+            display: none;
+            background: #161618;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+            text-align: left;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+        }
+
+        .guest-item {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .badge {
+            padding: 5px 10px;
             border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 15px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .badge-yes { background: rgba(52, 199, 89, 0.15); color: #34c759; border: 1px solid rgba(52, 199, 89, 0.3); }
+        .badge-no { background: rgba(255, 59, 48, 0.15); color: #ff3b30; border: 1px solid rgba(255, 59, 48, 0.3); }
+
+        .clear-btn {
+            background: rgba(255, 59, 48, 0.2);
+            color: #ff3b30;
+            border: 1px solid rgba(255, 59, 48, 0.4);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 11px;
+            cursor: pointer;
+            margin-top: 15px;
+            float: right;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="header-title">Үйлену тойға шақыру</div>
+        <div class="sub-header">Үйлену тойға шақыру</div>
         <div class="names">Алихан & Аружан</div>
 
-        <!-- Жұптың суреті -->
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600" alt="Алихан & Аружан" class="hero-img">
+        <!-- Алтын рамкадағы фото -->
+        <div class="hero-card">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800" alt="Алихан & Аружан" class="hero-img">
+        </div>
 
         <div class="invitation-text">
-            Құрметті бауырлар, ағайын-туыс, дос-жарандар!<br>
-            Сіздерді ұлымыз <b>Алихан</b> мен келініміз <b>Аружанның</b> отау құру тойына арналған салтанатты ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!
+            «Арманға жеткен ақ отау, шаттыққа толы бұл тойымыздың қадірлі қонағы болуға шақырамыз!»
         </div>
 
         <!-- ТАЙМЕР -->
@@ -153,62 +299,69 @@
             <div class="timer-item"><span id="seconds">0</span><small>Секунд</small></div>
         </div>
 
-        <!-- ТОЙДЫҢ УАҚЫТЫ МЕН МЕКЕНЖАЙЫ -->
+        <!-- КҮНІ ЖӘНЕ МЕКЕНЖАЙЫ -->
         <div class="info-card">
             <h3>🗓 КҮНІ МЕН УАҚЫТЫ</h3>
-            <p><b>25 Қараша 2026 жыл</b></p>
-            <p>Салтанатты жиын: <b>18:00</b></p>
-            <hr style="border: 0.5px solid #f0e6d2; margin: 15px 0;">
-            <h3>📍 МЕКЕНЖАЙЫ</h3>
-            <p>Тараз қаласы, <b>"Rixos Banquet Hall"</b> рестораны</p>
-            <p>Жамбыл проспектісі, 120</p>
-            
-            <!-- 2GIS СІЛТЕМЕСІ -->
-            <a href="https://2gis.kz" target="_blank" class="btn btn-gis">🗺 2GIS арқылы картадан қарау</a>
+            <p style="font-size: 18px; font-weight: 700; color: #fff;">25 Қараша 2026 жыл</p>
+            <p>Салтанатты жиын: <b style="color: var(--accent-gold);">18:00</b></p>
         </div>
 
-        <!-- ҚОНАҚТАРДЫҢ ЖАУАП БЕРУ ФОРМАСЫ -->
         <div class="info-card">
-            <h3>💌 ЖАУАБЫҢЫЗДЫ КҮТЕМІЗ</h3>
-            <p style="font-size: 14px; color: #666;">Тойға қатысуыңызды растауыңызды өтінеміз:</p>
+            <h3>📍 МЕКЕНЖАЙЫ</h3>
+            <p style="font-size: 16px; font-weight: 600; color: #fff;">"Rixos Banquet Hall"</p>
+            <p style="color: var(--text-dim);">Тараз қаласы, Жамбыл проспектісі, 120</p>
+            <a href="https://2gis.kz" target="_blank" class="btn btn-gis">🗺 2GIS Картадан ашу</a>
+        </div>
+
+        <!-- ЖАУАП БЕРУ ФОРМАСЫ -->
+        <div class="info-card">
+            <h3>💌 РАСТАУ ФОРМАСЫ</h3>
+            <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 15px;">Тойға қатысуыңызды алдын ала хабарлауыңызды өтінеміз:</p>
             
             <input type="text" id="guestName" placeholder="Аты-жөніңізді жазыңыз">
             <select id="attendance">
-                <option value="Жалғыз келемін">Иә, өзім келемін</option>
-                <option value="Жұбайыммен келемін">Иә, жұбайыммен келемін</option>
-                <option value="Отбасыммен келемін">Иә, отбасыммен келемін</option>
-                <option value="Келе алмаймын">Өкінішке орай, келе алмаймын</option>
+                <option value="Иә, өзім келемін">Иә, өзім келемін</option>
+                <option value="Иә, жұбайыммен келемін">Иә, жұбайыммен келемін</option>
+                <option value="Иә, отбасыммен келемін">Иә, отбасыммен келемін</option>
+                <option value="Өкінішке орай, келе алмаймын">Өкінішке орай, келе алмаймын</option>
             </select>
 
-            <button class="btn btn-whatsapp" onclick="sendRSVP()">Жауапты WhatsApp-қа жіберу</button>
+            <button class="btn btn-submit" id="submitBtn" onclick="sendRSVP()">ЖАУАПТЫ ЖІБЕРУ</button>
+            <div id="statusMessage">✨ Рақмет! Жауабыңыз қабылданды!</div>
         </div>
 
-        <p style="font-size: 12px; color: #aaa; margin-top: 30px;">Той иелері: Нұрлан & Бақыт</p>
+        <p style="font-size: 11px; color: var(--text-dim); margin-top: 25px; letter-spacing: 1px;">ТОЙ ИЕЛЕРІ: НҰРЛАН & БАҚЫТ</p>
+
+        <!-- VIP АДМИН ПАНЕЛЬ -->
+        <div class="admin-section">
+            <button class="admin-btn" onclick="toggleAdminPrompt()">🔒 VIP Тізім (Той иелеріне)</button>
+            
+            <div id="adminModal" class="admin-modal">
+                <h3 style="margin-top:0; color: var(--accent-gold); font-size: 14px; letter-spacing: 2px;">📋 ҚОНАҚТАР ТІЗІМІ</h3>
+                <div id="totalStats" style="font-size: 13px; font-weight: 600; margin-bottom: 15px; color: #fff;"></div>
+                <div id="guestList"></div>
+                <button class="clear-btn" onclick="clearList()">Тізімді өшіру</button>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
     </div>
 
     <script>
-        // ⚠️ Осы жерге ТӨЙ ИЕСІНІҢ WhatsApp нөмірін жазасыз:
-        const WHATSAPP_NUMBER = "77001234567";
+        const ADMIN_PASSWORD = "1234";
 
-        // ТАЙМЕР ЕСЕПТЕУ (2026 жылдың 25 қарашасына)
+        // ТАЙМЕР
         const weddingDate = new Date("Nov 25, 2026 18:00:00").getTime();
-
         setInterval(function() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
-
-            if (distance < 0) {
-                document.querySelector('.timer-box').innerHTML = "<b>Той басталды!</b>";
-                return;
-            }
-
+            if (distance < 0) return;
             document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
             document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
         }, 1000);
 
-        // RSVP ЖІБЕРУ
+        // ЖАУАПТЫ САҚТАУ
         function sendRSVP() {
             const name = document.getElementById("guestName").value;
             const status = document.getElementById("attendance").value;
@@ -218,12 +371,61 @@
                 return;
             }
 
-            let message = `Сәлеметсіз бе! Мен Алихан мен Аружанның тойына шақыру алдым.\n\n`;
-            message += `👤 *Аты-жөнім:* ${name}\n`;
-            message += `✅ *Шешімім:* ${status}`;
+            let guests = JSON.parse(localStorage.getItem("wedding_guests") || "[]");
+            guests.push({ name: name, status: status });
+            localStorage.setItem("wedding_guests", JSON.stringify(guests));
 
-            let url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-            window.location.href = url;
+            document.getElementById("submitBtn").style.display = "none";
+            document.getElementById("statusMessage").style.display = "block";
+        }
+
+        // АДМИН ПАНЕЛЬ
+        function toggleAdminPrompt() {
+            const pass = prompt("Админ панель паролін енгізіңіз:");
+            if (pass === ADMIN_PASSWORD) {
+                document.getElementById("adminModal").style.display = "block";
+                loadGuestList();
+            } else if (pass !== null) {
+                alert("Пароль қате!");
+            }
+        }
+
+        function loadGuestList() {
+            let guests = JSON.parse(localStorage.getItem("wedding_guests") || "[]");
+            const listDiv = document.getElementById("guestList");
+            const statsDiv = document.getElementById("totalStats");
+
+            if (guests.length === 0) {
+                listDiv.innerHTML = "<p style='color:#777; font-size:12px;'>Әлі жауаптар түспеді.</p>";
+                statsDiv.innerHTML = "";
+                return;
+            }
+
+            let yesCount = guests.filter(g => !g.status.includes("келе алмаймын")).length;
+            statsDiv.innerHTML = `Барлық жауап: ${guests.length} | Келетіндер: <span style='color:#34c759;'>${yesCount}</span>`;
+
+            listDiv.innerHTML = "";
+            guests.forEach(g => {
+                let isYes = !g.status.includes("келе алмаймын");
+                listDiv.innerHTML += `
+                    <div class="guest-item">
+                        <div>
+                            <b style="color:#fff;">${g.name}</b><br>
+                            <small style="color:#aaa;">${g.status}</small>
+                        </div>
+                        <span class="badge ${isYes ? 'badge-yes' : 'badge-no'}">
+                            ${isYes ? 'Келеді' : 'Келмейді'}
+                        </span>
+                    </div>
+                `;
+            });
+        }
+
+        function clearList() {
+            if (confirm("Тізімді тазалағыңыз келе ме?")) {
+                localStorage.removeItem("wedding_guests");
+                loadGuestList();
+            }
         }
     </script>
 </body>
