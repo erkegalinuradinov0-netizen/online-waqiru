@@ -40,6 +40,35 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* МУЗЫКА БАТЫРМАСЫ */
+        .music-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--accent-gold);
+            border-radius: 50%;
+            color: var(--accent-gold);
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .music-btn.playing {
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
         .sub-header {
             font-size: 11px;
             letter-spacing: 5px;
@@ -60,12 +89,26 @@
             line-height: 1.1;
         }
 
+        /* АНИМАЦИЯЛЫҚ ЖҮРЕК */
+        .beating-heart {
+            font-size: 32px;
+            margin: 10px 0;
+            display: inline-block;
+            animation: pulse 1.2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
         .hero-card {
             position: relative;
             padding: 5px;
             border-radius: 24px;
             background: var(--border-gold);
-            margin: 25px 0;
+            margin: 20px 0;
             box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
         }
 
@@ -82,7 +125,7 @@
             font-size: 20px;
             line-height: 1.6;
             color: #e0e0e0;
-            margin: 25px 10px;
+            margin: 20px 10px;
             font-style: italic;
         }
 
@@ -271,19 +314,31 @@
         }
     </style>
 </head>
-<body>
+<body onclick="startAudioOnFirstTouch()">
+
+    <!-- МУЗЫКА БАТЫРМАСЫ -->
+    <div class="music-btn" id="musicBtn" onclick="toggleMusic(event)">🎵</div>
+    
+    <!-- Аудио файл (фоновый саз) -->
+    <audio id="weddingAudio" loop preload="auto">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-wedding-march-classic-organ-1191.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="container">
         <div class="sub-header">Үйлену тойға шақыру</div>
         <div class="names">Рустем & Людмила</div>
 
-        <!-- Алтын рамкадағы сурет -->
+        <!-- АНИМАЦИЯЛЫ ЖҮРЕК -->
+        <div class="beating-heart">💖</div>
+
         <div class="hero-card">
             <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800" alt="Рустем & Людмила" class="hero-img">
         </div>
 
+        <!-- СІЗ АЙТҚАН ӨЛЕҢ СӨЗДЕРІ -->
         <div class="invitation-text">
-            «Арманға жеткен ақ отау, шаттыққа толы бұл тойымыздың қадірлі қонағы болуға шақырамыз!»
+            «Махаббаттың құдірет күшін әлдилеп,<br>Екі жастың табыстырған жүрегін...»<br><br>
+            Салтанатты тойымыздың қадірлі қонағы болуға шақырамыз!
         </div>
 
         <!-- ТАЙМЕР -->
@@ -343,8 +398,32 @@
     </div>
 
     <script>
-        // 🔑 АДМИН ПАРОЛІ:
         const ADMIN_PASSWORD = "7777";
+
+        // МУЗЫКА БАПТАУЫ
+        const audio = document.getElementById("weddingAudio");
+        const musicBtn = document.getElementById("musicBtn");
+        let isAudioStarted = false;
+
+        function startAudioOnFirstTouch() {
+            if (!isAudioStarted) {
+                audio.play().then(() => {
+                    musicBtn.classList.add("playing");
+                    isAudioStarted = true;
+                }).catch(err => console.log("Audio play error"));
+            }
+        }
+
+        function toggleMusic(e) {
+            e.stopPropagation(); // Негізгі body-ға кликті жібермеу
+            if (audio.paused) {
+                audio.play();
+                musicBtn.classList.add("playing");
+            } else {
+                audio.pause();
+                musicBtn.classList.remove("playing");
+            }
+        }
 
         // ТАЙМЕР (26 Желтоқсан 2026 жыл)
         const weddingDate = new Date("Dec 26, 2026 18:00:00").getTime();
@@ -376,7 +455,7 @@
             document.getElementById("statusMessage").style.display = "block";
         }
 
-        // АДМИН ПАНЕЛЬ (Пароль: 7777)
+        // АДМИН ПАНЕЛЬ
         function toggleAdminPrompt() {
             const pass = prompt("Админ панель паролін енгізіңіз:");
             if (pass === ADMIN_PASSWORD) {
