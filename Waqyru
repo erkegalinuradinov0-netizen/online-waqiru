@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тойға шақыру | Алихан & Аружан</title>
+    <style>
+        :root {
+            --bg-color: #fdfbf7;
+            --text-color: #333333;
+            --accent-color: #c5a059; /* Алтын түс */
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header-title {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-top: 30px;
+        }
+        .names {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #2c2c2c;
+        }
+        .invitation-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin: 20px 0;
+        }
+        .hero-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        /* ТАЙМЕР */
+        .timer-title {
+            font-size: 18px;
+            color: var(--accent-color);
+            margin-top: 30px;
+        }
+        .timer-box {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 15px 0;
+        }
+        .timer-item {
+            background: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            min-width: 50px;
+        }
+        .timer-item span {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        .timer-item small {
+            font-size: 10px;
+            color: #777;
+        }
+
+        /* АҚПАРАТ КАРТОЧКАСЫ */
+        .info-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 16px;
+            margin: 25px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #f0e6d2;
+        }
+        .info-card h3 {
+            margin: 5px 0;
+            color: var(--accent-color);
+        }
+
+        /* БАТЫРМАЛАР */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+        .btn-gis {
+            background-color: #2f3542;
+            color: #ffffff;
+        }
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: #ffffff;
+        }
+
+        /* ФОРМА */
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-title">Үйлену тойға шақыру</div>
+        <div class="names">Алихан & Аружан</div>
+
+        <!-- Жұптың суреті -->
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600" alt="Алихан & Аружан" class="hero-img">
+
+        <div class="invitation-text">
+            Құрметті бауырлар, ағайын-туыс, дос-жарандар!<br>
+            Сіздерді ұлымыз <b>Алихан</b> мен келініміз <b>Аружанның</b> отау құру тойына арналған салтанатты ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!
+        </div>
+
+        <!-- ТАЙМЕР -->
+        <div class="timer-title">Тойға дейін қалды:</div>
+        <div class="timer-box">
+            <div class="timer-item"><span id="days">0</span><small>Күн</small></div>
+            <div class="timer-item"><span id="hours">0</span><small>Сағат</small></div>
+            <div class="timer-item"><span id="minutes">0</span><small>Минут</small></div>
+            <div class="timer-item"><span id="seconds">0</span><small>Секунд</small></div>
+        </div>
+
+        <!-- ТОЙДЫҢ УАҚЫТЫ МЕН МЕКЕНЖАЙЫ -->
+        <div class="info-card">
+            <h3>🗓 КҮНІ МЕН УАҚЫТЫ</h3>
+            <p><b>25 Қараша 2026 жыл</b></p>
+            <p>Салтанатты жиын: <b>18:00</b></p>
+            <hr style="border: 0.5px solid #f0e6d2; margin: 15px 0;">
+            <h3>📍 МЕКЕНЖАЙЫ</h3>
+            <p>Тараз қаласы, <b>"Rixos Banquet Hall"</b> рестораны</p>
+            <p>Жамбыл проспектісі, 120</p>
+            
+            <!-- 2GIS СІЛТЕМЕСІ -->
+            <a href="https://2gis.kz" target="_blank" class="btn btn-gis">🗺 2GIS арқылы картадан қарау</a>
+        </div>
+
+        <!-- ҚОНАҚТАРДЫҢ ЖАУАП БЕРУ ФОРМАСЫ -->
+        <div class="info-card">
+            <h3>💌 ЖАУАБЫҢЫЗДЫ КҮТЕМІЗ</h3>
+            <p style="font-size: 14px; color: #666;">Тойға қатысуыңызды растауыңызды өтінеміз:</p>
+            
+            <input type="text" id="guestName" placeholder="Аты-жөніңізді жазыңыз">
+            <select id="attendance">
+                <option value="Жалғыз келемін">Иә, өзім келемін</option>
+                <option value="Жұбайыммен келемін">Иә, жұбайыммен келемін</option>
+                <option value="Отбасыммен келемін">Иә, отбасыммен келемін</option>
+                <option value="Келе алмаймын">Өкінішке орай, келе алмаймын</option>
+            </select>
+
+            <button class="btn btn-whatsapp" onclick="sendRSVP()">Жауапты WhatsApp-қа жіберу</button>
+        </div>
+
+        <p style="font-size: 12px; color: #aaa; margin-top: 30px;">Той иелері: Нұрлан & Бақыт</p>
+    </div>
+
+    <script>
+        // ⚠️ Осы жерге ТӨЙ ИЕСІНІҢ WhatsApp нөмірін жазасыз:
+        const WHATSAPP_NUMBER = "77001234567";
+
+        // ТАЙМЕР ЕСЕПТЕУ (2026 жылдың 25 қарашасына)
+        const weddingDate = new Date("Nov 25, 2026 18:00:00").getTime();
+
+        setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.querySelector('.timer-box').innerHTML = "<b>Той басталды!</b>";
+                return;
+            }
+
+            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+        }, 1000);
+
+        // RSVP ЖІБЕРУ
+        function sendRSVP() {
+            const name = document.getElementById("guestName").value;
+            const status = document.getElementById("attendance").value;
+
+            if (!name) {
+                alert("Өтініш, аты-жөніңізді жазыңыз!");
+                return;
+            }
+
+            let message = `Сәлеметсіз бе! Мен Алихан мен Аружанның тойына шақыру алдым.\n\n`;
+            message += `👤 *Аты-жөнім:* ${name}\n`;
+            message += `✅ *Шешімім:* ${status}`;
+
+            let url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
